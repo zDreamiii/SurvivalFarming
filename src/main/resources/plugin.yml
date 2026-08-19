@@ -1,0 +1,6 @@
+name: SurvivalFarming
+version: '1.0.0'
+main: at.zDreamiii.survivalFarming.SurvivalFarming
+api-version: '1.21'
+author: zDreamiii
+description: Harvest and replant mature crops by right-clicking with a hoe.
