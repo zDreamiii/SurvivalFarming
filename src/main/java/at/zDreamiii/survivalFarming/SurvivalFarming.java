@@ -1,5 +1,6 @@
 package at.zDreamiii.survivalFarming;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
@@ -19,6 +20,8 @@ import java.util.Map;
 
 public final class SurvivalFarming extends JavaPlugin implements Listener {
 
+    private static final String USE_PERMISSION = "survivalfarming.use";
+
     private static final Map<Material, Material> REPLANT_ITEMS = Map.of(
             Material.WHEAT, Material.WHEAT_SEEDS,
             Material.CARROTS, Material.CARROT,
@@ -31,12 +34,17 @@ public final class SurvivalFarming extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
+        new Metrics(this, 33592);
     }
 
     @EventHandler(ignoreCancelled = true)
     public void onCropRightClick(PlayerInteractEvent event) {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK
                 || event.getHand() != EquipmentSlot.HAND) {
+            return;
+        }
+
+        if (!event.getPlayer().hasPermission(USE_PERMISSION)) {
             return;
         }
 
