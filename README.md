@@ -57,4 +57,4 @@ To restrict the feature to specific ranks with LuckPerms, deny the permission fo
 
 ## Metrics
 
-SurvivalFarming uses bStats to collect anonymous usage statistics. Server owners can disable metrics in `plugins/bStats/config.yml`.
+SurvivalFarming uses bStats to collect anonymous usage statistics.
